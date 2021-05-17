@@ -1,0 +1,12 @@
+.connection-point {
+  background-color: black;
+  position: absolute;
+  right: -7px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  opacity: 0.2;
+  &:hover {
+    opacity: 0.6;
+  }
+}

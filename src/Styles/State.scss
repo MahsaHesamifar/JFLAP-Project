@@ -1,0 +1,30 @@
+.state {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid black;
+  margin: 50px;
+  .single-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+  .double-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+}
