@@ -2,15 +2,51 @@ import React, { useRef } from "react";
 import Draggable from "react-draggable";
 import ConnectionPoint from "../ConnectionPoint";
 
-const State = props => {
+const State = ({ states, setStates, state, stateId, addArrow, setArrows }) => {
+  const dragRef = useRef(null);
+  const stateRef = useRef(null);
+  // console.log(props.circle1ref);
+
+  // const stateId = stateId;
   return (
     <div>
-      <Draggable>
-        <div className="state">
-          <li className="double-border">{props.state.stateName}</li>
+      <Draggable
+        ref={dragRef}
+        onDrag={e => {
+          // console.log(e);
+          setArrows(arrows => [...arrows]);
+        }}
+      >
+        <div
+          className="state"
+          id={stateId}
+          ref={stateRef}
+          onDragOver={e => e.preventDefault()}
+          onDrop={e => {
+            if (e.dataTransfer.getData("arrow") === stateId) {
+              console.log(e.dataTransfer.getData("arrow"), stateId);
+            } else {
+              const refs = {
+                start: e.dataTransfer.getData("arrow"),
+                end: stateId,
+              };
+              addArrow(refs);
+              console.log("droped!", refs);
+            }
+          }}
+        >
+          <li className="double-border">
+            {state.stateName}
+
+            {/* <ConnectionPoint {...{ stateId, dragRef, stateRef }} /> */}
+            <ConnectionPoint
+              stateId={stateId}
+              dragRef={dragRef}
+              stateRef={stateRef}
+            />
+          </li>
         </div>
       </Draggable>
-      {/* <ConnectionPoint /> */}
     </div>
   );
 };

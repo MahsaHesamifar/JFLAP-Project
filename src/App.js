@@ -4,6 +4,7 @@
 // import "./Styles/App.scss";
 
 // const connectPointStyle = {
+//   zIndex: 1,
 //   position: "absolute",
 //   width: 15,
 //   height: 15,
@@ -11,10 +12,10 @@
 //   background: "black",
 // };
 // const connectPointOffset = {
-//   // left: { left: 0, top: "50%", transform: "translate(-50%, -50%)" },
-//   // right: { left: "100%", top: "50%", transform: "translate(-50%, -50%)" },
-//   // top: { left: "50%", top: 0, transform: "translate(-50%, -50%)" },
-//   // bottom: { left: "50%", top: "100%", transform: "translate(-50%, -50%)" },
+//   left: { left: 0, top: "50%", transform: "translate(-50%, -50%)" },
+//   right: { left: "100%", top: "50%", transform: "translate(-50%, -50%)" },
+//   top: { left: "50%", top: 0, transform: "translate(-50%, -50%)" },
+//   bottom: { left: "50%", top: "100%", transform: "translate(-50%, -50%)" },
 // };
 
 // const ConnectPointsWrapper = ({ boxId, handler, dragRef, boxRef }) => {
@@ -77,7 +78,7 @@
 //       }}
 //     >
 //       <div
-//         id={boxId}
+//         id={boxId} // comes from the props
 //         ref={boxRef}
 //         style={boxStyle}
 //         onDragOver={e => e.preventDefault()}
@@ -100,19 +101,33 @@
 
 // export default function App() {
 //   const [arrows, setArrows] = useState([]);
+//   const [boxes, setBoxes] = useState([]);
 //   const addArrow = ({ start, end }) => {
 //     setArrows([...arrows, { start, end }]);
 //   };
 //   return (
 //     <div style={{ display: "flex", justifyContent: "space-evenly" }}>
 //       {/* two boxes */}
+//       {/* {boxes.map((box, i) => (
+//         <Box
+//           text={`q${i}`}
+//           {...{ addArrow, setArrows, handler: "right", boxId: `box2_${i + 1}` }}
+//         />
+//       ))} */}
 //       <Box
 //         text="drag my handler to second element"
+//         addArrow={addArrow}
 //         {...{ addArrow, setArrows, handler: "right", boxId: "box2_1" }}
 //       />
 //       <Box
 //         text="second element"
+//         addArrow={addArrow}
 //         {...{ addArrow, setArrows, handler: "left", boxId: "box2_2" }}
+//       />
+//       <Box
+//         text="third element"
+//         addArrow={addArrow}
+//         {...{ addArrow, setArrows, handler: "left", boxId: "box2_3" }}
 //       />
 //       {arrows.map(ar => (
 //         <Xarrow
