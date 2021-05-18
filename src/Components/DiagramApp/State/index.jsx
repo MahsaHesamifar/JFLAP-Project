@@ -2,12 +2,9 @@ import React, { useRef } from "react";
 import Draggable from "react-draggable";
 import ConnectionPoint from "../ConnectionPoint";
 
-const State = ({ states, setStates, state, stateId, addArrow, setArrows }) => {
-  const dragRef = useRef(null);
-  const stateRef = useRef(null);
-  // console.log(props.circle1ref);
-
-  // const stateId = stateId;
+const State = ({ states, setStates, state, addArrow, setArrows, stateId }) => {
+  const dragRef = useRef();
+  const stateRef = useRef();
   return (
     <div>
       <Draggable
@@ -24,6 +21,7 @@ const State = ({ states, setStates, state, stateId, addArrow, setArrows }) => {
           onDragOver={e => e.preventDefault()}
           onDrop={e => {
             if (e.dataTransfer.getData("arrow") === stateId) {
+              // the start and end are the same state
               console.log(e.dataTransfer.getData("arrow"), stateId);
             } else {
               const refs = {
@@ -35,10 +33,9 @@ const State = ({ states, setStates, state, stateId, addArrow, setArrows }) => {
             }
           }}
         >
-          <li className="double-border">
+          <li className={state.initial ? "double-border" : "single-border"}>
             {state.stateName}
 
-            {/* <ConnectionPoint {...{ stateId, dragRef, stateRef }} /> */}
             <ConnectionPoint
               stateId={stateId}
               dragRef={dragRef}
@@ -52,43 +49,3 @@ const State = ({ states, setStates, state, stateId, addArrow, setArrows }) => {
 };
 
 export default State;
-
-// import React, { useRef } from "react";
-// import Draggable from "react-draggable";
-// import ConnectionPoint from "../ConnectionPoint";
-
-// const State = props => {
-//   const dragRef = useRef();
-//   const stateRef = useRef();
-//   return (
-//     <Draggable
-//       ref={dragRef}
-//       onDrag={e => {
-//         props.setArrows(arrows => [...arrows]);
-//       }}
-//     >
-//       <div
-//         className="state"
-//         ref={stateRef}
-//         onDragOver={e => e.preventDefault()}
-//         onDrop={e => {
-//           if (e.dataTransfer.getData("arrow") === props.state.id) {
-//             console.log(e.dataTransfer.getData("arrow"), props.state.id);
-//           } else {
-//             const refs = {
-//               start: e.dataTransfer.getData("arrow"),
-//               end: props.state.id,
-//             };
-//             props.addArrow(refs);
-//             console.log("droped!", refs);
-//           }
-//         }}
-//       >
-//         <li className="double-border">{props.state.stateName}</li>
-//         <ConnectionPoint />
-//       </div>
-//     </Draggable>
-//   );
-// };
-
-// export default State;
