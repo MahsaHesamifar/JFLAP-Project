@@ -15,6 +15,7 @@ const DiagramApp = () => {
     <div className="diagram-container">
       <Toolbar onSubmit={onAddState} states={states} />
       <StateList states={states} setStates={setStates} />
+      {/* {console.log(arrows)} */}
     </div>
   );
 };

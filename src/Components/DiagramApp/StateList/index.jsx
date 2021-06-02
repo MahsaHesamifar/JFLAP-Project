@@ -7,6 +7,7 @@ const StateList = props => {
 
   //states:
   const [arrows, setArrows] = useState([]);
+  const [transitionTable, setTransitionTable] = useState([]);
 
   // const [, setRender] = useState({});
   // const forceRerender = () => setRender({});
@@ -35,6 +36,7 @@ const StateList = props => {
               setArrows={setArrows}
               stateId={`${state.id}`}
               // {...{ addArrow, setArrows, stateId: `${state.id}` }}
+              arrows={arrows}
             />
           </>
         );

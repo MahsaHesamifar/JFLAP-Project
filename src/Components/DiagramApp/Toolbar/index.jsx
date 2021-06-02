@@ -56,6 +56,7 @@ const Toolbar = props => {
             >
               <i className="fas fa-plus-circle"></i>
             </button>
+
           </form>
         </li>
         {/* <li>

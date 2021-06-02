@@ -1,8 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Draggable from "react-draggable";
 import ConnectionPoint from "../ConnectionPoint";
 
-const State = ({ states, setStates, state, addArrow, setArrows, stateId }) => {
+const State = ({
+  states,
+  setStates,
+  state,
+  addArrow,
+  setArrows,
+  stateId,
+  arrows,
+}) => {
   const dragRef = useRef();
   const stateRef = useRef();
   return (
@@ -29,6 +37,7 @@ const State = ({ states, setStates, state, addArrow, setArrows, stateId }) => {
                 end: stateId,
               };
               addArrow(refs);
+
               console.log("droped!", refs);
             }
           }}
