@@ -40,6 +40,7 @@ const ConnectionPoint = ({ stateId, dragRef, stateRef }) => {
           // console.log("onDragEnd");
           setPosition({});
           setBeingDragged(false);
+          // window.prompt("enter a transition: ");
         }}
       >
         {/* {beingDragged ? (

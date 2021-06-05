@@ -10,6 +10,7 @@ const State = ({
   setArrows,
   stateId,
   arrows,
+  labelList,
 }) => {
   const dragRef = useRef();
   const stateRef = useRef();
@@ -18,7 +19,6 @@ const State = ({
       <Draggable
         ref={dragRef}
         onDrag={e => {
-          // console.log(e);
           setArrows(arrows => [...arrows]);
         }}
       >
@@ -33,16 +33,17 @@ const State = ({
               console.log(e.dataTransfer.getData("arrow"), stateId);
             } else {
               const refs = {
+                id: arrows.length,
                 start: e.dataTransfer.getData("arrow"),
+                label: "*",
                 end: stateId,
               };
               addArrow(refs);
-
-              console.log("droped!", refs);
             }
           }}
         >
-          <li className={state.initial ? "double-border" : "single-border"}>
+          <div className={state.initial ? "is-initial" : "not-initial"}></div>
+          <div className={state.final ? "double-border" : "single-border"}>
             {state.stateName}
 
             <ConnectionPoint
@@ -50,7 +51,7 @@ const State = ({
               dragRef={dragRef}
               stateRef={stateRef}
             />
-          </li>
+          </div>
         </div>
       </Draggable>
     </div>

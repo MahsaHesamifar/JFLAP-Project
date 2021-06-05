@@ -3,41 +3,50 @@ import React, { useState } from "react";
 const Toolbar = props => {
   //states:
   const [stateName, setStateName] = useState("");
+  const [isInitial, setIsInitial] = useState(false);
+  const [isFinal, setIsFinal] = useState(false);
+
   // event handlers:
   const addStateHandler = () => {
     console.log("addStateHandler");
+  };
+  const initialHandler = () => {
+    props.states.map(state => {
+      if (state.initial) {
+        state.initial = false;
+        return;
+      }
+    });
+    setIsInitial(!isInitial);
+  };
+  const finalHandler = () => {
+    setIsFinal(!isFinal);
   };
   const onFormSubmit = e => {
     e.preventDefault();
     if (stateName === "") {
       props.onSubmit({
         stateName: `q${props.states.length}`,
-        initial: false,
-        final: false,
+        initial: isInitial,
+        final: isFinal,
         id: Math.random() * 100,
       });
     } else {
       props.onSubmit({
         stateName,
-        initial: false,
-        final: false,
+        initial: isInitial,
+        final: isFinal,
         id: Math.random() * 100,
       });
     }
     setStateName("");
+    setIsFinal(false);
+    setIsInitial(false);
   };
 
   return (
     <div>
       <ul className="toolbar" id="toolbar">
-        {/* <li>
-          <button
-            className="select-icon"
-            //  onClick={selectNodeHandler}
-          >
-            <i className="fas fa-mouse-pointer"></i>
-          </button>
-        </li> */}
         <li>
           <form onSubmit={onFormSubmit}>
             <input
@@ -49,32 +58,17 @@ const Toolbar = props => {
               }}
               value={stateName}
             />
-            <button
-              type="submit"
-              className="add-icon"
-              onClick={addStateHandler}
-            >
-              <i className="fas fa-plus-circle"></i>
+            <button type="submit" className="add-btn" onClick={addStateHandler}>
+              <i className="fas fa-plus"></i>
             </button>
-
+            <button onClick={initialHandler} className="initial-btn">
+              initial
+            </button>
+            <button onClick={finalHandler} className="final-btn">
+              final
+            </button>
           </form>
         </li>
-        {/* <li>
-          <button
-            className="link-icon"
-            //   onClick={addLinkHandler}
-          >
-            <i className="fas fa-slash"></i>
-          </button>
-        </li>
-        <li>
-          <button
-            className="delete-icon"
-            //    onClick={deleteNodeHandler}
-          >
-            <i className="fas fa-trash"></i>
-          </button>
-        </li> */}
       </ul>
     </div>
   );

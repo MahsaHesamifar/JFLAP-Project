@@ -10,14 +10,18 @@
   li {
     form {
       display: flex;
+      padding: 5px;
       // width: 100%;
       button {
-        background: none;
+        background: #4ecdc4;
         border: none;
-        color: rgb(240, 234, 234);
+        color: white;
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 1.5rem;
         width: 100%;
+        margin: 0px 5px;
+        padding: 5px 10px;
+        border-radius: 30px;
         &:hover {
           color: rgb(65, 65, 65);
           background-color: #dceae4;
@@ -31,9 +35,9 @@
         outline: none;
       }
     }
-    .add-icon {
-      color: #4ecdc4;
-    }
+    // .add-icon {
+    //   color: #4ecdc4;
+    // }
   }
 }
 // .toolbar {

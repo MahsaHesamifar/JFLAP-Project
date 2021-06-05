@@ -6,17 +6,18 @@ const StateList = props => {
   //refs:
 
   //states:
-  const [arrows, setArrows] = useState([]);
   const [transitionTable, setTransitionTable] = useState([]);
+  const [labelValue, setLabelValue] = useState("λ");
+  const [labelList, setLabelList] = useState([]);
 
-  // const [, setRender] = useState({});
-  // const forceRerender = () => setRender({});
-
-  const addArrow = ({ start, end }) => {
-    setArrows([
-      ...arrows,
+  //event handlers:
+  const addArrow = ({ id, start, label, end }) => {
+    props.setArrows([
+      ...props.arrows,
       {
+        id,
         start,
+        label,
         end,
       },
     ]);
@@ -24,6 +25,39 @@ const StateList = props => {
 
   return (
     <ul className="states-container">
+      {props.arrows.map((arrow, i) => {
+        return (
+          <Xarrow
+            start={arrow.start}
+            end={arrow.end}
+            key={arrow.start + "-." + arrow.end}
+            color={"#4ecdc4"}
+            label={
+              <form>
+                <input
+                  type="text"
+                  maxLength="2"
+                  defaultValue={"*"}
+                  style={{
+                    font: "italic 1.5em serif",
+                    color: "black",
+                    outline: "none",
+                    backgroundColor: "white",
+                    border: "none",
+                    width: "50px",
+                  }}
+                  onChange={e => {
+                    setLabelList([...labelList, e.target.value]);
+                    props.arrows[arrow.id].label = e.target.value;
+                  }}
+                />
+              </form>
+            }
+            headSize={5}
+            strokeWidth={4}
+          />
+        );
+      })}
       {props.states.map(state => {
         return (
           <>
@@ -33,37 +67,13 @@ const StateList = props => {
               state={state}
               key={state.id}
               addArrow={addArrow}
-              setArrows={setArrows}
+              setArrows={props.setArrows}
               stateId={`${state.id}`}
               // {...{ addArrow, setArrows, stateId: `${state.id}` }}
-              arrows={arrows}
+              arrows={props.arrows}
+              labelList={labelList}
             />
           </>
-        );
-      })}
-      {arrows.map(arrow => {
-        return (
-          <Xarrow
-            start={arrow.start}
-            end={arrow.end}
-            key={arrow.start + "-." + arrow.end}
-            color={"#4ecdc4"}
-            label={
-              <div
-                contentEditable
-                suppressContentEditableWarning={true}
-                style={{
-                  font: "italic 1.5em serif",
-                  color: "black",
-                  outline: "none",
-                }}
-              >
-                &lambda;
-              </div>
-            }
-            headSize={5}
-            strokeWidth={4}
-          />
         );
       })}
     </ul>
