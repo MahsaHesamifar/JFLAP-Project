@@ -6,9 +6,6 @@ const StateList = props => {
   //refs:
 
   //states:
-  const [transitionTable, setTransitionTable] = useState([]);
-  const [labelValue, setLabelValue] = useState("λ");
-  const [labelList, setLabelList] = useState([]);
 
   //event handlers:
   const addArrow = ({ id, start, label, end }) => {
@@ -47,7 +44,6 @@ const StateList = props => {
                     width: "50px",
                   }}
                   onChange={e => {
-                    setLabelList([...labelList, e.target.value]);
                     props.arrows[arrow.id].label = e.target.value;
                   }}
                 />
@@ -71,7 +67,6 @@ const StateList = props => {
               stateId={`${state.id}`}
               // {...{ addArrow, setArrows, stateId: `${state.id}` }}
               arrows={props.arrows}
-              labelList={labelList}
             />
           </>
         );

@@ -10,7 +10,6 @@ const State = ({
   setArrows,
   stateId,
   arrows,
-  labelList,
 }) => {
   const dragRef = useRef();
   const stateRef = useRef();
