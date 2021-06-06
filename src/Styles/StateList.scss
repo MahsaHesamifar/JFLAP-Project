@@ -1,16 +1,12 @@
 .states-container {
   list-style: none;
   .line-label {
-    border: none;
+    font: italic 1.5em serif;
+    color: black;
     outline: none;
     background: none;
+    border: none;
     width: 50px;
-    text-align: center;
-    font-size: 1.1rem;
-    padding-left: 15px;
-    &::placeholder {
-      color: black;
-    }
   }
 }
 .connect-states {

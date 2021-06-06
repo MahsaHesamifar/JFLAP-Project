@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Toolbar from "./Toolbar";
 import StateList from "./StateList";
-import { arrowShapes } from "react-xarrows/lib";
 import axios from "axios";
 
 const DiagramApp = () => {
@@ -14,11 +13,8 @@ const DiagramApp = () => {
   useEffect(() => {
     addAutomata();
     // console.log(automata);
-  }, [arrows]);
-  useEffect(() => {
-    addAutomata();
-    // console.log(automata);
-  }, [states]);
+  }, [arrows, states]);
+
   // useEffect(async () => {
   //   try {
   //     getAutomata();
@@ -34,8 +30,8 @@ const DiagramApp = () => {
   const onAddState = circle => {
     //creating a circle(state)
     setStates([...states, circle]);
-    // console.log(states);
-    // console.log(arrows);
+    console.log(states);
+    console.log(arrows);
   };
   const addAutomata = () => {
     let newArrows = [];
@@ -43,7 +39,7 @@ const DiagramApp = () => {
     let transitionTable = [];
     let end = [];
     let stateName = "";
-    let transition = [];
+    // let transition = [];
     let startState = "";
     let finalState = [];
     // creating the newArrows array(with stateNames instead of state.ids):
@@ -117,7 +113,7 @@ const DiagramApp = () => {
           // newArrows[i].label === transitionTable[j].transiton[?]
           for (let k = 0; k < transitionTable[j].transition.length; k++) {
             if (newArrows[i].label === transitionTable[j].transition[k]) {
-              console.log(newArrows[i].end, transitionTable[j].end[k]);
+              // console.log(newArrows[i].end, transitionTable[j].end[k]);
 
               if (transitionTable[j].end[k] === undefined) {
                 transitionTable[j].end[k] = `${newArrows[i].end}`;
@@ -129,7 +125,7 @@ const DiagramApp = () => {
           }
         }
       }
-      console.log(newArrows);
+      // console.log(newArrows);
     }
 
     states.map(state => {
@@ -204,7 +200,7 @@ const DiagramApp = () => {
   return (
     <div className="diagram-container">
       <Toolbar onSubmit={onAddState} states={states} />
-      <button className="some-btn" onClick={connectToDatabase}>
+      <button className="connect-database-btn" onClick={connectToDatabase}>
         send automata to database
       </button>
       <StateList

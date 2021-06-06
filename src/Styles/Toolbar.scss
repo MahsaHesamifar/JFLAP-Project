@@ -5,88 +5,53 @@
   left: 0px;
   list-style: none;
   width: 100%;
+  height: 65px;
   display: flex;
-  background-color: #212121;
+  background-color: #282828;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.29);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.29);
+  padding: 10px 0px;
   li {
     form {
       display: flex;
       padding: 5px;
-      // width: 100%;
-      input {
-        background-color: #212121;
-      }
+      margin-left: 10px;
       button {
         background: #4ecdc4;
         border: none;
-        color: white;
+        color: #282828;
         cursor: pointer;
-        font-size: 1.5rem;
+        font-size: 0.8rem;
+
         width: 100%;
         margin: 0px 5px;
-        padding: 5px 10px;
-        border-radius: 30px;
+        padding: 0px 13px;
+        border-radius: 40px;
         &:hover {
-          color: rgb(65, 65, 65);
+          color: #282828de;
           background-color: #dceae4;
         }
       }
       .state-input {
+        background-color: #282828;
+
         border-radius: 30px;
-        border: 1px solid #4ecdc4;
+        border: 2px solid #4ae9d7;
         padding: 5px 10px;
         height: 35px;
         outline: none;
+        color: #fefefe;
+        &::placeholder {
+          color: #47a296;
+        }
+      }
+      .initial-btn,
+      .final-btn {
+        background-color: lightseagreen;
+        padding: 0px 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
       }
     }
-    // .add-icon {
-    //   color: #4ecdc4;
-    // }
   }
 }
-// .toolbar {
-//   position: fixed;
-//   top: 10%;
-//   left: 10px;
-//   list-style: none;
-//   width: 60px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   border-radius: 20px;
-//   border: 3px solid #89a9aa;
-//   background-color: white;
-//   li {
-//     width: 100%;
-//     button {
-//       background: none;
-//       border: none;
-//       padding: 15px 10px;
-//       color: rgb(240, 234, 234);
-//       cursor: pointer;
-//       font-size: 1.5rem;
-//       width: 100%;
-//       &:hover {
-//         color: rgb(65, 65, 65);
-//         background-color: #dceae4;
-//       }
-//     }
-//   }
-
-//   .select-icon {
-//     border-top-left-radius: 17px;
-//     border-top-right-radius: 17px;
-//     color: #1a535c;
-//   }
-//   .add-icon {
-//     color: #4ecdc4;
-//   }
-//   .link-icon {
-//     color: #ffdd33;
-//     // color: black;
-//   }
-//   .delete-icon {
-//     color: #ff6b6b;
-//     border-bottom-left-radius: 17px;
-//     border-bottom-right-radius: 17px;
-//   }
-// }

@@ -26,7 +26,7 @@ const Toolbar = props => {
     e.preventDefault();
     if (stateName === "") {
       props.onSubmit({
-        stateName: `q${props.states.length}`,
+        stateName: `${props.states.length}`,
         initial: isInitial,
         final: isFinal,
         id: Math.random() * 100,
@@ -50,6 +50,7 @@ const Toolbar = props => {
         <li>
           <form onSubmit={onFormSubmit}>
             <input
+              maxLength={1}
               className="state-input"
               type="text"
               placeholder="State Name"

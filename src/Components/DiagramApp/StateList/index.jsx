@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import State from "../State";
 import Xarrow from "react-xarrows";
 
@@ -28,21 +28,14 @@ const StateList = props => {
             start={arrow.start}
             end={arrow.end}
             key={arrow.start + "-." + arrow.end}
-            color={"#4ecdc4"}
+            color={"#4AE9D7"}
             label={
               <form>
                 <input
+                  className="line-label"
                   type="text"
-                  maxLength="2"
+                  maxLength="1"
                   defaultValue={"*"}
-                  style={{
-                    font: "italic 1.5em serif",
-                    color: "black",
-                    outline: "none",
-                    backgroundColor: "white",
-                    border: "none",
-                    width: "50px",
-                  }}
                   onChange={e => {
                     props.arrows[arrow.id].label = e.target.value;
                   }}

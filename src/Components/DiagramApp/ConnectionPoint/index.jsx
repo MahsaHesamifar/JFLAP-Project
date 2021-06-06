@@ -4,7 +4,7 @@ const ConnectionPoint = ({ stateId, dragRef, stateRef }) => {
   const ref1 = useRef();
 
   const [position, setPosition] = useState({});
-  const [beingDragged, setBeingDragged] = useState(false);
+  const [, setBeingDragged] = useState(false);
 
   return (
     <>

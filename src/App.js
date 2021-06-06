@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import DiagramApp from "./Components/DiagramApp";
 import HomePage from "./pages/HomePage";
 import TeamPage from "./pages/TeamPage";
 import Nav from "./Components/Nav";

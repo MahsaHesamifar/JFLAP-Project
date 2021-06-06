@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Draggable from "react-draggable";
 import ConnectionPoint from "../ConnectionPoint";
 
@@ -13,6 +13,23 @@ const State = ({
 }) => {
   const dragRef = useRef();
   const stateRef = useRef();
+
+  let topPosition, leftPosition;
+
+  topPosition = Math.ceil(stateId);
+  leftPosition = Math.ceil(stateId);
+  if (topPosition < 40) {
+    topPosition = topPosition * 3;
+  }
+  if (leftPosition < 40) {
+    leftPosition = leftPosition * 2;
+  }
+  while (topPosition > 60) {
+    topPosition = topPosition / 4;
+  }
+  while (leftPosition > 90) {
+    leftPosition = leftPosition / 2;
+  }
   return (
     <div>
       <Draggable
@@ -23,6 +40,7 @@ const State = ({
       >
         <div
           className="state"
+          style={{ top: `${topPosition}vh`, left: `${leftPosition}vw` }}
           id={stateId}
           ref={stateRef}
           onDragOver={e => e.preventDefault()}

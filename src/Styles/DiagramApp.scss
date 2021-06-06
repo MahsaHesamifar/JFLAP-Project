@@ -1,9 +1,22 @@
 .diagram-container {
-  z-index: 1;
+  z-index: -1;
   position: relative;
-  margin-top: 100px;
-  margin-left: 50px;
-  .some-btn {
-    z-index: 10;
+  margin-top: 110px;
+  padding: 0 30px;
+  .connect-database-btn {
+    z-index: 1;
+    position: absolute;
+    top: -60px;
+    // top: 5px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #f88169;
+    border: 4px solid #282828;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background-color: #ff5254;
+    }
   }
 }
