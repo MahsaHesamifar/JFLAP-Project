@@ -62,71 +62,132 @@ const DiagramApp = () => {
         }
       }
     }
-    arrows.map(arrow => {
+    newArrows.map(arrow => {
       // alphabets and transitions:
       if (!alphabet.includes(arrow.label)) {
         alphabet = [...alphabet, arrow.label];
         for (let i = 0; i < transitionTable.length; i++) {
           transitionTable[i].transition = alphabet;
         }
+        // for (let j in alphabet) {
+        //   // setting the "*" transition in the last index of alphabet
+        //   if (alphabet[j] === "*") {
+        //     let temp;
+        //     let lastIndex = alphabet.length - 1;
+        //     temp = alphabet[j];
+        //     alphabet[j] = alphabet[lastIndex];
+        //     alphabet[lastIndex] = temp;
+        //   }
+        // }
       }
+
       // transitionTable:
-      states.map(state => {
-        // stateName:
-        if (`${state.id}` === arrow.start) {
-          let found = false;
-          stateName = state.stateName;
+      let found = false;
+      stateName = arrow.start;
 
-          // checking if an element with the same stateName exist in transitionTable:
-          for (let i = 0; i < transitionTable.length; i++) {
-            if (transitionTable[i].stateName === state.stateName) {
-              found = true;
-              // console.log("found", found);
-              break;
-            }
-          }
+      // checking if an element with the same stateName exist in transitionTable:
+      for (let i = 0; i < transitionTable.length; i++) {
+        if (transitionTable[i].stateName === arrow.start) {
+          found = true;
+          // end = [...end, arrow.end];
 
-          if (!found) {
-            // if the stateName doesn't exist add another obj to transitionTable
-            transitionTable = [
-              ...transitionTable,
-              {
-                stateName,
-                transition: alphabet,
-                end,
-                // end: [...end, state[parseFloat(arrow.end)].stateName],
-              },
-            ];
-          }
-        }
-        return null;
-      });
-      return null;
-    });
-
-    //transitionTable.end
-    // the following code has some errors: 1. all of the transitionTable elements get the same .end value!
-    for (let i = 0; i < newArrows.length; i++) {
-      //arrows
-      for (let j = 0; j < transitionTable.length; j++) {
-        if (newArrows[i].start === transitionTable[j].stateName) {
-          // newArrows[i].label === transitionTable[j].transiton[?]
-          for (let k = 0; k < transitionTable[j].transition.length; k++) {
-            if (newArrows[i].label === transitionTable[j].transition[k]) {
-              // console.log(newArrows[i].end, transitionTable[j].end[k]);
-
-              if (transitionTable[j].end[k] === undefined) {
-                transitionTable[j].end[k] = `${newArrows[i].end}`;
+          for (let j in transitionTable[i].transition) {
+            if (arrow.label === transitionTable[i].transition[j]) {
+              if (transitionTable[i].end[j] === undefined) {
+                transitionTable[i].end[j] = `${arrow.end}`;
               } else {
-                transitionTable[j].end[k] =
-                  `${transitionTable[j].end[k]}` + `${newArrows[i].end}`;
+                transitionTable[i].end[j] =
+                  `${transitionTable[i].end[j]}` + `${arrow.end}`;
               }
             }
           }
+          // transitionTable[i].end = [
+          //   `${transitionTable[i].end}` + `${arrow.end}`,
+          // ];
+
+          break;
         }
       }
-      // console.log(newArrows);
-    }
+      if (!found) {
+        // if the stateName doesn't exist add another obj to transitionTable
+        transitionTable = [
+          ...transitionTable,
+          {
+            stateName,
+            transition: alphabet,
+            end: [...end, arrow.end],
+            // end: [...end, state[parseFloat(arrow.end)].stateName],
+          },
+        ];
+      }
+      // }
+      return null;
+    });
+    // arrows.map(arrow => {
+    //   // alphabets and transitions:
+    //   if (!alphabet.includes(arrow.label)) {
+    //     alphabet = [...alphabet, arrow.label];
+    //     for (let i = 0; i < transitionTable.length; i++) {
+    //       transitionTable[i].transition = alphabet;
+    //     }
+    //   }
+    //   // transitionTable:
+    //   states.map(state => {
+    //     // stateName:
+    //     if (`${state.id}` === arrow.start) {
+    //       let found = false;
+    //       stateName = state.stateName;
+
+    //       // checking if an element with the same stateName exist in transitionTable:
+    //       for (let i = 0; i < transitionTable.length; i++) {
+    //         if (transitionTable[i].stateName === state.stateName) {
+    //           found = true;
+    //           // console.log("found", found);
+    //           break;
+    //         }
+    //       }
+
+    //       if (!found) {
+    //         // if the stateName doesn't exist add another obj to transitionTable
+    //         transitionTable = [
+    //           ...transitionTable,
+    //           {
+    //             stateName,
+    //             transition: alphabet,
+    //             end,
+    //             // end: [...end, state[parseFloat(arrow.end)].stateName],
+    //           },
+    //         ];
+    //       }
+    //     }
+    //     return null;
+    //   });
+    //   return null;
+    // });
+    //--------------------------------------
+    //transitionTable.end
+    // the following code has some errors: 1. all of the transitionTable elements get the same .end value!
+    // for (let i = 0; i < newArrows.length; i++) {
+    //   //arrows
+    //   for (let j = 0; j < transitionTable.length; j++) {
+    //     if (newArrows[i].start === transitionTable[j].stateName) {
+    //       // newArrows[i].label === transitionTable[j].transiton[?]
+    //       for (let k = 0; k < transitionTable[j].transition.length; k++) {
+    //         if (newArrows[i].label === transitionTable[j].transition[k]) {
+    //           // console.log(newArrows[i].end, transitionTable[j].end[k]);
+
+    //           if (transitionTable[j].end[k] === undefined) {
+    //             transitionTable[j].end[k] = `${newArrows[i].end}`;
+    //           } else {
+    //             transitionTable[j].end[k] =
+    //               `${transitionTable[j].end[k]}` + `${newArrows[i].end}`;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    //   // console.log(newArrows);
+    // }
 
     states.map(state => {
       if (state.initial) {
@@ -200,7 +261,10 @@ const DiagramApp = () => {
   return (
     <div className="diagram-container">
       <Toolbar onSubmit={onAddState} states={states} />
-      <button className="connect-database-btn" onClick={connectToDatabase}>
+      <button
+        className="connect-database-btn"
+        //  onClick={connectToDatabase}
+      >
         send automata to database
       </button>
       <StateList
