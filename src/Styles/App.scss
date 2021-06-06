@@ -5,7 +5,8 @@
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #dceae4;
+  // background-color: #dceae4;
+  background-color: #faf4f4;
   //   background-color: rgb(225, 225, 225);
 }
 @import "./Nav.scss";
@@ -15,4 +16,3 @@ body {
 @import "./State.scss";
 @import "./ConnectionPoint.scss";
 @import "./Team.scss";
-

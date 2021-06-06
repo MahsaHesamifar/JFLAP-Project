@@ -1,6 +1,9 @@
 .diagram-container {
-  z-index: -1;
+  z-index: 1;
   position: relative;
   margin-top: 100px;
   margin-left: 50px;
+  .some-btn {
+    z-index: 10;
+  }
 }

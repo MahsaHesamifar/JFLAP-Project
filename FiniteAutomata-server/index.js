@@ -7,6 +7,7 @@ require("dotenv").config({
 
 const app = require("./app");
 
+//database
 const { PORT, DOMAIN, DATABASE } = process.env;
 const server = () =>
   app.listen(PORT || 8000, () => {
@@ -29,6 +30,7 @@ mongoose
     mongoose.connection.close();
   });
 
+//error handler
 process.on("unhandledRejection", (err) => {
   console.log(err.name, err.message);
   console.log("UNHANDLED_REJECTION!   Shutting down...");

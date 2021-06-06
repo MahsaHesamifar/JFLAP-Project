@@ -1,11 +1,22 @@
 {
   "name": "finite-automata",
   "version": "0.0.0",
+  "description": "An Automata Server",
+  "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaghayeghng/FiniteAutomata-server.git"
+  },
+  "author": "Shaghayeghng",
+  "bugs": {
+    "url": "https://github.com/shaghayeghng/FiniteAutomata-server/issues"
+  },
+  "homepage": "https://github.com/shaghayeghng/FiniteAutomata-server#readme",
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",

@@ -6,12 +6,15 @@
   list-style: none;
   width: 100%;
   display: flex;
-  background-color: rgb(255, 255, 255);
+  background-color: #212121;
   li {
     form {
       display: flex;
       padding: 5px;
       // width: 100%;
+      input {
+        background-color: #212121;
+      }
       button {
         background: #4ecdc4;
         border: none;

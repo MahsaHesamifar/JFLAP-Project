@@ -16,6 +16,6 @@ Router.route('/nfa2dfa')
   .get(automataController.NFAtoDFA);
 
 Router.route('/minimize')
-  .get(automataController.Reduction);
+  .get(automataController.MinimizeDFA);
 
 module.exports = Router;
