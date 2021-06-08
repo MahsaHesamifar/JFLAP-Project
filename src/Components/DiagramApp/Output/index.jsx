@@ -14,27 +14,24 @@ const Output = ({
   };
   return (
     <>
-      {dfaAutomataState}
-      <ul>
-        <li>
-          <h2>Alphabet:</h2>
-          {/* {console.log(JSON.parse(dfaAutomataState))} */}
-          <p>{alphabet}</p>
+      {/* {dfaAutomataState} */}
+      <ul className="output-ul">
+        <li className="output-li" id="alphabet">
+          <h2 className="header">Alphabet:</h2>
+          <p className="output-p">{alphabet}</p>
         </li>
-        <li>
-          <h2>transition Table:</h2>
-          <p>{JSON.stringify(transitionTable)}</p>
-          {/* <p>{JSON.stringify(obj)}</p> */}
+        <li className="output-li" id="transition-table">
+          <h2 className="header">transition Table:</h2>
+          <p className="output-p">{JSON.stringify(transitionTable)}</p>
         </li>
 
-        <li>
-          <h2>Final States:</h2>
-          <p>{finalStates}</p>
+        <li className="output-li" id="final-states">
+          <h2 className="header">Final States:</h2>
+          <p className="output-p">{finalStates}</p>
         </li>
-        <li>
-          {" "}
-          <h2>start State:</h2>
-          <p>{startState}</p>
+        <li className="output-li" id="start-state">
+          <h2 className="header">start State:</h2>
+          <p className="output-p">{startState}</p>
         </li>
       </ul>
     </>

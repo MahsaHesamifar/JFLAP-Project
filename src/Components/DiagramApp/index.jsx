@@ -15,12 +15,14 @@ const DiagramApp = () => {
   const [transitionTable, setTransitionTable] = useState([]);
   const [finalStates, setFinalStates] = useState([]);
   const [startState, setStartState] = useState([]);
+  const [outputTitle, setOutputTitle] = useState("");
 
   // globalVariables
   var serverAlphabet;
   var serverTransitionTable = [];
   var serverFinalStates = [];
   var serverStartState = [];
+
   //useEffect:
   useEffect(() => {
     addAutomata();
@@ -159,6 +161,7 @@ const DiagramApp = () => {
     ajax.send(JSON.stringify(automata));
   };
   const minimize = async () => {
+    setOutputTitle("Minimize Result:");
     // try {
     let ajax1 = new XMLHttpRequest();
     //get json
@@ -168,8 +171,21 @@ const DiagramApp = () => {
         if (this.status === 200) {
           console.log(this.responseText); //print json on console
 
+          console.log(JSON.parse(ajax1.responseText));
           setDfaAutomataState(this.responseText);
-
+          var dfaAutomataObj = JSON.parse(ajax1.responseText).dfaAutomata;
+          //alphabet
+          serverAlphabet = dfaAutomataObj.alphabet;
+          setAlphabet(serverAlphabet);
+          //transitionTable
+          serverTransitionTable = dfaAutomataObj.transitionTable;
+          setTransitionTable(serverTransitionTable);
+          //finalStates
+          serverFinalStates = dfaAutomataObj.finalStates;
+          setFinalStates(serverFinalStates);
+          //startState
+          serverStartState = dfaAutomataObj.startState;
+          setStartState(serverStartState);
           // dfaAutomataState = JSON.parse(this.responseText).dfaAutomata;
         } else if (this.status === 404) {
           console.log("not found"); //if can not found json
@@ -183,6 +199,7 @@ const DiagramApp = () => {
     // }
   };
   const getfromDatabase = async () => {
+    setOutputTitle("NFA to DFA Result:");
     let ajax1 = new XMLHttpRequest();
     //get json
     ajax1.open("GET", "http://localhost:8000/automata/nfa2dfa");
@@ -249,8 +266,8 @@ const DiagramApp = () => {
         <div className="server-response">
           <div className="output-container" id="output-container">
             <div className="output-msg">
-              <h1>The OutPut</h1>
-              <p>some description here!</p>
+              {console.log(outputTitle)}
+              <h1>{outputTitle}</h1>
               <div className="output-diagram">
                 {console.log(transitionTable)}
                 <Output

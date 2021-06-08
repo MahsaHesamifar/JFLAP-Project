@@ -4,7 +4,8 @@
 .output-container {
   z-index: 10;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.809);
+  // background-color: rgba(0, 0, 0, 0.809);
+  background-color: #282828f1;
   top: -58px;
   left: 0;
   bottom: 0;
@@ -14,16 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .blocker {
-    position: fixed;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.809);
-    top: -58px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    content: " ";
-  }
+
   .output-msg {
     // background-color: red;
     position: relative;
@@ -36,9 +28,6 @@
     align-items: center;
     h1 {
       color: white;
-    }
-    p {
-      color: white;
       margin: 10px 0 30px;
     }
     .output-diagram {
@@ -48,9 +37,41 @@
       height: 70vh;
       position: relative;
       z-index: 10;
-      p {
-        color: black;
-        font-size: 3rem;
+      padding: 30px 30px 100px 30px;
+      .output-ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
+        justify-content: space-around;
+        .output-li {
+          display: flex;
+          color: #282828;
+          .header {
+            font-size: 1rem;
+          }
+          .output-p {
+            font-size: 1.2rem;
+            padding: 0 20px;
+          }
+        }
+        #alphabet {
+          // background-color: green;
+        }
+        #transition-table {
+          // background-color: tomato;
+          display: flex;
+          flex-direction: column;
+          // background-color: red;
+        }
+        #final-states {
+          // background-color: greenyellow;
+        }
+        #start-state {
+          // background-color: hotpink;
+        }
       }
     }
   }
