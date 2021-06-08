@@ -5,7 +5,7 @@
   padding: 0 30px;
   .backend-btns {
     position: fixed;
-    width: 40%;
+    width: 46%;
     display: flex;
     justify-content: space-between;
     top: 50px;
@@ -25,18 +25,18 @@
       cursor: pointer;
     }
     .connect-database-btn {
-      background-color: #f88169;
-      &:hover {
-        background-color: #ff5254;
-      }
-    }
-    .get-btn {
       background-color: #b93c95;
       // color: #f88169;
       &:hover {
         // background-color: #672153;
         background-color: #cd65b0;
         // color: #f7f1f2;
+      }
+    }
+    .get-btn {
+      background-color: #f88169;
+      &:hover {
+        background-color: #ff5254;
       }
     }
     .refresh-btn {

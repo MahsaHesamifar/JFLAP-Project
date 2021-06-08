@@ -220,22 +220,18 @@ const DiagramApp = () => {
           refresh
         </button>
         <button className="connect-database-btn" onClick={connectToDatabase}>
-          send to database
+          send
         </button>
-        <button className="connect-database-btn" onClick={minimize}>
+        <button className="get-btn" onClick={minimize}>
           Minimize
         </button>
         <button className="get-btn" onClick={getfromDatabase}>
           nfa to dfa
         </button>
       </div>
-      {console.log(showOutput)}
+      {/* {console.log(showOutput)} */}
       {/* <Output dfaAutomataState={dfaAutomataState} showOutput={showOutput} /> */}
-      {showOutput ? (
-        <Output dfaAutomataState={dfaAutomataState} />
-      ) : (
-        console.log("no output")
-      )}
+      {showOutput ? <Output dfaAutomataState={dfaAutomataState} /> : null}
       {/* <Output className={showOutput ? "Output-container" : ""} /> */}
       <StateList
         states={states}
