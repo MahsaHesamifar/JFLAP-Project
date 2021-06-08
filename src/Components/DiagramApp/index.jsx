@@ -11,6 +11,12 @@ const DiagramApp = () => {
   const [automata, setAutomata] = useState({});
   const [dfaAutomataState, setDfaAutomataState] = useState("");
   const [showOutput, setShowOutput] = useState(false);
+  const [alphabet, setAlphabet] = useState([]);
+  const [transitionTable, setTransitionTable] = useState([]);
+
+  // globalVariables
+  var serverAlphabet;
+  var serverTransitionTable = [];
   //useEffect:
   useEffect(() => {
     addAutomata();
@@ -158,7 +164,7 @@ const DiagramApp = () => {
         if (this.status === 200) {
           console.log(this.responseText); //print json on console
 
-          // setDfaAutomataState(this.responseText);
+          setDfaAutomataState(this.responseText);
 
           // dfaAutomataState = JSON.parse(this.responseText).dfaAutomata;
         } else if (this.status === 404) {
@@ -180,11 +186,38 @@ const DiagramApp = () => {
     ajax1.onreadystatechange = function () {
       if (this.readyState === XMLHttpRequest.DONE) {
         if (this.status === 200) {
-          // console.log(JSON.parse(this.responseText).dfaAutomata); //print json on console
-
+          console.log(JSON.parse(ajax1.responseText));
           setDfaAutomataState(this.responseText);
+          var dfaAutomataObj = JSON.parse(ajax1.responseText).dfaAutomata;
+          //alphabet
+          serverAlphabet = dfaAutomataObj.alphabet;
+          setAlphabet(serverAlphabet);
+          //transitionTable
+          // setTransitionTable([{ stateName: "" }]);
+          // for (let i in dfaAutomataObj.transitionTable) {
+          //   let eachTransitionTable = {};
+          //   // serverTransitionTable[i].stateName = JSON.parse(ajax1.responseText).dfaAutomata.transitionTable[i].stateName;
+          //   console.log(dfaAutomataObj.transitionTable[i].stateName);
+          //   eachTransitionTable.stateName =
+          //     dfaAutomataObj.transitionTable[i].stateName;
+          //   // serverTransitionTable[i].transition = JSON.parse(ajax1.responseText).dfaAutomata.transitionTable[i].transition;
 
-          // dfaAutomataState = JSON.parse(this.responseText).dfaAutomata;
+          //   serverTransitionTable[i] = eachTransitionTable;
+          //   setTransitionTable([...transitionTable, serverTransitionTable[i]]);
+
+          //   console.log(serverTransitionTable[i]);
+          // }
+          // console.log(transitionTable);
+
+          // dfaAutomataObj.transitionTable.map((element, i) => {
+          //   let eachTransitionTable = {};
+          //   eachTransitionTable.stateName = element.stateName;
+          //   serverTransitionTable[i] = eachTransitionTable;
+          //   // setTransitionTable([...transitionTable, serverTransitionTable[i]]);
+          // });
+          // setTransitionTable(serverTransitionTable);
+
+          // setTransitionTable(serverTransitionTable);
         } else if (this.status === 404) {
           console.log("not found"); //if can not found json
         }
@@ -231,7 +264,19 @@ const DiagramApp = () => {
       </div>
       {/* {console.log(showOutput)} */}
       {/* <Output dfaAutomataState={dfaAutomataState} showOutput={showOutput} /> */}
-      {showOutput ? <Output dfaAutomataState={dfaAutomataState} /> : null}
+      {showOutput ? (
+        <div className="server-response">
+          {/* {console.log(serverAlphabet)} */}
+          {/* <div className="msg">ggg{serverResponse}ggg</div> */}
+          <Output
+            dfaAutomataState={dfaAutomataState}
+            alphabet={alphabet}
+            transitionTable={transitionTable}
+          />
+        </div>
+      ) : // <Output dfaAutomataState={dfaAutomataState} />
+      //
+      null}
       {/* <Output className={showOutput ? "Output-container" : ""} /> */}
       <StateList
         states={states}

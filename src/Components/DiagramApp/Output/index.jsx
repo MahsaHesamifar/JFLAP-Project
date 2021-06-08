@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const Output = ({ dfaAutomataState, showOutput }) => {
+const Output = ({ dfaAutomataState, alphabet, transitionTable }) => {
   //states:
-  const [alphabet, setAlphabet] = useState([]);
+  // const [alphabet, setAlphabet] = useState([]);
   // let showOutput = false;
   // const blockerHandler = () => {
   //   console.log("blocker handle");
@@ -17,14 +17,13 @@ const Output = ({ dfaAutomataState, showOutput }) => {
   //   setAlphabet(JSON.parse(dfaAutomataState).dfaAutomata.alphabet);
   // }, [dfaAutomataState]);
   const convertToObj = () => {
-    console.log("haha");
+    // console.log("converttoobj");
     // console.log(JSON.parse(dfaAutomataState));
     // alphabet = JSON.parse(dfaAutomataState).dfaAutomata.alphabet;
     // setAlphabet(JSON.parse(dfaAutomataState).dfaAutomata.alphabet);
     // finalStates = JSON.parse(dfaAutomataState).dfaAutomata.finalStates;
     // startState = JSON.parse(dfaAutomataState).dfaAutomata.startState;
     // transitionTable = JSON.parse(dfaAutomataState).dfaAutomata.transitionTable;
-
     // console.log(JSON.parse(dfaAutomataState));
   };
   return (
@@ -40,17 +39,18 @@ const Output = ({ dfaAutomataState, showOutput }) => {
           <h1>The OutPut</h1>
           <p>some description here!</p>
           <div className="output-diagram">
-            {dfaAutomataState}
+            {/* {dfaAutomataState} */}
             <ul>
               <li>
                 <h2>Alphabet:</h2>
                 {/* {console.log(JSON.parse(dfaAutomataState))} */}
                 <p>{alphabet}</p>
               </li>
-              {/* <li>
-                <h2>Alphabet:</h2>
-                <p>{alphabet}</p>
+              <li>
+                <h2>transition Table:</h2>
+                <p>{transitionTable}</p>
               </li>
+              {/*
               <li>
                 {" "}
                 <h2>Alphabet:</h2>
