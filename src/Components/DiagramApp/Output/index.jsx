@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-const Output = ({ dfaAutomataState, alphabet, transitionTable }) => {
-  //states:
-  // const [alphabet, setAlphabet] = useState([]);
-  // let showOutput = false;
-  // const blockerHandler = () => {
-  //   console.log("blocker handle");
-  //   showOutput = !showOutput;
-  // };
-  // let alphabet = [];
-  // let finalStates = "";
-  // let startState = [];
-  // let transitionTable = {};
-  // useEffect(() => {
-  //   console.log("hahahahhaa");
-  //   setAlphabet(JSON.parse(dfaAutomataState).dfaAutomata.alphabet);
-  // }, [dfaAutomataState]);
+const Output = ({
+  dfaAutomataState,
+  alphabet,
+  transitionTable,
+  finalStates,
+  startState,
+}) => {
   let obj;
   const transitionTableHandler = () => {
     // let string = JSON.stringify(transitionTable);
@@ -35,17 +26,16 @@ const Output = ({ dfaAutomataState, alphabet, transitionTable }) => {
           <p>{JSON.stringify(transitionTable)}</p>
           {/* <p>{JSON.stringify(obj)}</p> */}
         </li>
-        {/*
-              <li>
-                {" "}
-                <h2>Alphabet:</h2>
-                <p>{alphabet}</p>
-              </li>
-              <li>
-                {" "}
-                <h2>Alphabet:</h2>
-                <p>{alphabet}</p>
-              </li> */}
+
+        <li>
+          <h2>Final States:</h2>
+          <p>{finalStates}</p>
+        </li>
+        <li>
+          {" "}
+          <h2>start State:</h2>
+          <p>{startState}</p>
+        </li>
       </ul>
     </>
   );

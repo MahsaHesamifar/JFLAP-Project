@@ -13,10 +13,14 @@ const DiagramApp = () => {
   const [showOutput, setShowOutput] = useState(false);
   const [alphabet, setAlphabet] = useState([]);
   const [transitionTable, setTransitionTable] = useState([]);
+  const [finalStates, setFinalStates] = useState([]);
+  const [startState, setStartState] = useState([]);
 
   // globalVariables
   var serverAlphabet;
   var serverTransitionTable = [];
+  var serverFinalStates = [];
+  var serverStartState = [];
   //useEffect:
   useEffect(() => {
     addAutomata();
@@ -179,7 +183,6 @@ const DiagramApp = () => {
     // }
   };
   const getfromDatabase = async () => {
-    // try {
     let ajax1 = new XMLHttpRequest();
     //get json
     ajax1.open("GET", "http://localhost:8000/automata/nfa2dfa");
@@ -195,6 +198,12 @@ const DiagramApp = () => {
           //transitionTable
           serverTransitionTable = dfaAutomataObj.transitionTable;
           setTransitionTable(serverTransitionTable);
+          //finalStates
+          serverFinalStates = dfaAutomataObj.finalStates;
+          setFinalStates(serverFinalStates);
+          //startState
+          serverStartState = dfaAutomataObj.startState;
+          setStartState(serverStartState);
         } else if (this.status === 404) {
           console.log("not found"); //if can not found json
         }
@@ -202,9 +211,6 @@ const DiagramApp = () => {
     };
     ajax1.send();
     setShowOutput(true);
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
   const refreshDatabase = async () => {
     console.log("refresh");
@@ -239,13 +245,8 @@ const DiagramApp = () => {
           nfa to dfa
         </button>
       </div>
-      {/* {console.log(showOutput)} */}
-      {/* <Output dfaAutomataState={dfaAutomataState} showOutput={showOutput} /> */}
       {showOutput ? (
         <div className="server-response">
-          {/* {console.log(serverAlphabet)} */}
-          {/* <div className="msg">ggg{serverResponse}ggg</div> */}
-
           <div className="output-container" id="output-container">
             <div className="output-msg">
               <h1>The OutPut</h1>
@@ -256,15 +257,14 @@ const DiagramApp = () => {
                   dfaAutomataState={dfaAutomataState}
                   alphabet={alphabet}
                   transitionTable={transitionTable}
+                  finalStates={finalStates}
+                  startState={startState}
                 />
               </div>
             </div>
           </div>
         </div>
-      ) : // <Output dfaAutomataState={dfaAutomataState} />
-      //
-      null}
-      {/* <Output className={showOutput ? "Output-container" : ""} /> */}
+      ) : null}
       <StateList
         states={states}
         setStates={setStates}
