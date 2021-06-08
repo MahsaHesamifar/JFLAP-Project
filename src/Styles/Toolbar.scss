@@ -8,50 +8,55 @@
   height: 65px;
   display: flex;
   background-color: #282828;
+  border-bottom: 1px solid #645451;
+
   -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.29);
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.29);
   padding: 10px 0px;
-  li {
-    form {
-      display: flex;
-      padding: 5px;
-      margin-left: 10px;
-      button {
-        background: #4ecdc4;
-        border: none;
-        color: #282828;
-        cursor: pointer;
-        font-size: 0.8rem;
 
-        width: 100%;
-        margin: 0px 5px;
-        padding: 0px 13px;
-        border-radius: 40px;
-        &:hover {
-          color: #282828de;
-          background-color: #dceae4;
-        }
-      }
-      .state-input {
-        background-color: #282828;
+  form {
+    display: flex;
+    padding: 5px;
+    margin-left: 10px;
+    button {
+      background-color: #4ecdc4;
 
-        border-radius: 30px;
-        border: 2px solid #4ae9d7;
-        padding: 5px 10px;
-        height: 35px;
-        outline: none;
-        color: #fefefe;
-        &::placeholder {
-          color: #47a296;
-        }
+      border: none;
+      color: #282828;
+      cursor: pointer;
+      font-size: 0.8rem;
+
+      width: 100%;
+      margin: 0px 5px;
+      padding: 0px 13px;
+      border-radius: 40px;
+      &:hover {
+        color: #282828de;
+        background-color: #dceae4;
       }
-      .initial-btn,
-      .final-btn {
-        background-color: lightseagreen;
-        padding: 0px 20px;
-        font-weight: bold;
-        letter-spacing: 2px;
+    }
+    .state-input {
+      background-color: #282828;
+
+      border-radius: 30px;
+      border: 2px solid #4ae9d7;
+      padding: 5px 10px;
+      height: 35px;
+      outline: none;
+      color: #fefefe;
+      &::placeholder {
+        color: #47a296;
       }
+    }
+    .add-btn {
+      background-color: #4ae9d7;
+    }
+    .initial-btn,
+    .final-btn {
+      background-color: lightseagreen;
+      padding: 0px 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
   }
 }

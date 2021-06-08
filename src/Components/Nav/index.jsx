@@ -7,16 +7,17 @@ const Nav = () => {
       <nav id="navbar">
         <ul>
           <li className="logo">
-          <Link to="/">JFLAP</Link>
+            <Link to="/">JFLAP</Link>
             {/* <a href="#home">JFLAP</a> */}
           </li>
           <li>
-          <Link to="/">Home</Link>
+            <Link to="/">Home</Link>
 
             {/* <a href="#home">Home</a> */}
           </li>
+          <li>{/* <a href="#home">Home</a> */}</li>
           <li>
-          <Link to="/team">Team</Link>
+            <Link to="/team">Team</Link>
 
             {/* <a href="#team">Team</a> */}
           </li>

@@ -1,22 +1,51 @@
 .diagram-container {
-  z-index: -1;
+  z-index: 1;
   position: relative;
   margin-top: 110px;
   padding: 0 30px;
-  .connect-database-btn {
-    z-index: 1;
-    position: absolute;
-    top: -60px;
+  .backend-btns {
+    position: fixed;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    top: 50px;
     // top: 5px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: #f88169;
-    border: 4px solid #282828;
-    border-radius: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    &:hover {
-      background-color: #ff5254;
+    right: 0px;
+    z-index: 1;
+
+    button {
+      z-index: 1;
+      padding: 10px 15px;
+      margin: 0 10px;
+
+      width: 30%;
+      border: 4px solid #282828;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .connect-database-btn {
+      background-color: #f88169;
+      &:hover {
+        background-color: #ff5254;
+      }
+    }
+    .get-btn {
+      background-color: #b93c95;
+      // color: #f88169;
+      &:hover {
+        // background-color: #672153;
+        background-color: #cd65b0;
+        // color: #f7f1f2;
+      }
+    }
+    .refresh-btn {
+      // background-color: #47a296;
+      background-color: #53c2b3;
+
+      &:hover {
+        background-color: #4ae9d7;
+      }
     }
   }
 }

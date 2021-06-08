@@ -8,7 +8,7 @@ const Toolbar = props => {
 
   // event handlers:
   const addStateHandler = () => {
-    console.log("addStateHandler");
+    // console.log("addStateHandler");
   };
   const initialHandler = () => {
     props.states.map(state => {
@@ -46,31 +46,29 @@ const Toolbar = props => {
 
   return (
     <div>
-      <ul className="toolbar" id="toolbar">
-        <li>
-          <form onSubmit={onFormSubmit}>
-            <input
-              maxLength={1}
-              className="state-input"
-              type="text"
-              placeholder="State Name"
-              onChange={e => {
-                setStateName(e.target.value);
-              }}
-              value={stateName}
-            />
-            <button type="submit" className="add-btn" onClick={addStateHandler}>
-              <i className="fas fa-plus"></i>
-            </button>
-            <button onClick={initialHandler} className="initial-btn">
-              initial
-            </button>
-            <button onClick={finalHandler} className="final-btn">
-              final
-            </button>
-          </form>
-        </li>
-      </ul>
+      <div className="toolbar" id="toolbar">
+        <form onSubmit={onFormSubmit}>
+          <input
+            maxLength={1}
+            className="state-input"
+            type="text"
+            placeholder="State Name"
+            onChange={e => {
+              setStateName(e.target.value);
+            }}
+            value={stateName}
+          />
+          <button type="submit" className="add-btn" onClick={addStateHandler}>
+            <i className="fas fa-plus"></i>
+          </button>
+          <button onClick={initialHandler} className="initial-btn">
+            initial
+          </button>
+          <button onClick={finalHandler} className="final-btn">
+            final
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

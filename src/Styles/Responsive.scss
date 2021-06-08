@@ -1,0 +1,83 @@
+@media screen and (max-width: 1140px) {
+  .diagram-container {
+    .backend-btns {
+      width: 40%;
+      justify-content: flex-end;
+    }
+  }
+}
+@media screen and (max-width: 960px) {
+  .diagram-container {
+    margin-top: 100px;
+
+    .backend-btns {
+      width: 100%;
+      top: 100px !important;
+      background-color: #2e2e2e;
+      padding: 10px 5px;
+      justify-content: flex-end;
+      button {
+        width: 15%;
+        font-size: 0.7rem;
+        padding: 10px 8px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  .diagram-container {
+    margin-top: 100px;
+
+    .backend-btns {
+      width: 100%;
+      top: 100px !important;
+
+      background-color: #2e2e2e;
+      padding: 10px 5px;
+      justify-content: flex-end;
+      button {
+        width: 20%;
+        font-size: 0.7rem;
+        padding: 8px 8px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .toolbar {
+    height: 55px;
+    form {
+      button {
+        font-size: 0.7rem;
+        padding: 0;
+      }
+      .state-input {
+        height: 25px;
+        width: 150px;
+      }
+      .add-btn {
+        padding: 5px 10px;
+      }
+      .initial-btn,
+      .final-btn {
+        padding: 5px 10px;
+      }
+    }
+  }
+  .diagram-container {
+    margin-top: 95px;
+    .backend-btns {
+      width: 100%;
+      top: 95px !important;
+
+      background-color: #2e2e2e;
+      padding: 10px 5px;
+      justify-content: space-around;
+      button {
+        font-size: 0.7rem;
+        padding: 8px 8px;
+        width: 30%;
+      }
+    }
+  }
+}
