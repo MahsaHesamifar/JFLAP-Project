@@ -193,31 +193,8 @@ const DiagramApp = () => {
           serverAlphabet = dfaAutomataObj.alphabet;
           setAlphabet(serverAlphabet);
           //transitionTable
-          // setTransitionTable([{ stateName: "" }]);
-          // for (let i in dfaAutomataObj.transitionTable) {
-          //   let eachTransitionTable = {};
-          //   // serverTransitionTable[i].stateName = JSON.parse(ajax1.responseText).dfaAutomata.transitionTable[i].stateName;
-          //   console.log(dfaAutomataObj.transitionTable[i].stateName);
-          //   eachTransitionTable.stateName =
-          //     dfaAutomataObj.transitionTable[i].stateName;
-          //   // serverTransitionTable[i].transition = JSON.parse(ajax1.responseText).dfaAutomata.transitionTable[i].transition;
-
-          //   serverTransitionTable[i] = eachTransitionTable;
-          //   setTransitionTable([...transitionTable, serverTransitionTable[i]]);
-
-          //   console.log(serverTransitionTable[i]);
-          // }
-          // console.log(transitionTable);
-
-          // dfaAutomataObj.transitionTable.map((element, i) => {
-          //   let eachTransitionTable = {};
-          //   eachTransitionTable.stateName = element.stateName;
-          //   serverTransitionTable[i] = eachTransitionTable;
-          //   // setTransitionTable([...transitionTable, serverTransitionTable[i]]);
-          // });
-          // setTransitionTable(serverTransitionTable);
-
-          // setTransitionTable(serverTransitionTable);
+          serverTransitionTable = dfaAutomataObj.transitionTable;
+          setTransitionTable(serverTransitionTable);
         } else if (this.status === 404) {
           console.log("not found"); //if can not found json
         }
@@ -268,11 +245,21 @@ const DiagramApp = () => {
         <div className="server-response">
           {/* {console.log(serverAlphabet)} */}
           {/* <div className="msg">ggg{serverResponse}ggg</div> */}
-          <Output
-            dfaAutomataState={dfaAutomataState}
-            alphabet={alphabet}
-            transitionTable={transitionTable}
-          />
+
+          <div className="output-container" id="output-container">
+            <div className="output-msg">
+              <h1>The OutPut</h1>
+              <p>some description here!</p>
+              <div className="output-diagram">
+                {console.log(transitionTable)}
+                <Output
+                  dfaAutomataState={dfaAutomataState}
+                  alphabet={alphabet}
+                  transitionTable={transitionTable}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       ) : // <Output dfaAutomataState={dfaAutomataState} />
       //
