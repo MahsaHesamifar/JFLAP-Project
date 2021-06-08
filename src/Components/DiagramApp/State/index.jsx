@@ -45,18 +45,13 @@ const State = ({
           ref={stateRef}
           onDragOver={e => e.preventDefault()}
           onDrop={e => {
-            if (e.dataTransfer.getData("arrow") === stateId) {
-              // the start and end are the same state
-              console.log(e.dataTransfer.getData("arrow"), stateId);
-            } else {
-              const refs = {
-                id: arrows.length,
-                start: e.dataTransfer.getData("arrow"),
-                label: "*",
-                end: stateId,
-              };
-              addArrow(refs);
-            }
+            const refs = {
+              id: arrows.length,
+              start: e.dataTransfer.getData("arrow"),
+              label: "*",
+              end: stateId,
+            };
+            addArrow(refs);
           }}
         >
           <div className={state.initial ? "is-initial" : "not-initial"}></div>

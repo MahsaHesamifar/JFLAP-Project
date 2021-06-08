@@ -148,6 +148,30 @@ const DiagramApp = () => {
     };
     ajax.send(JSON.stringify(automata));
   };
+  const minimize = async () => {
+    // try {
+    let ajax1 = new XMLHttpRequest();
+    //get json
+    ajax1.open("GET", "http://localhost:8000/automata/minimize");
+    ajax1.onreadystatechange = function () {
+      if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+          console.log(this.responseText); //print json on console
+
+          // setDfaAutomataState(this.responseText);
+
+          // dfaAutomataState = JSON.parse(this.responseText).dfaAutomata;
+        } else if (this.status === 404) {
+          console.log("not found"); //if can not found json
+        }
+      }
+    };
+    ajax1.send();
+    setShowOutput(true);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
   const getfromDatabase = async () => {
     // try {
     let ajax1 = new XMLHttpRequest();
@@ -196,10 +220,13 @@ const DiagramApp = () => {
           refresh
         </button>
         <button className="connect-database-btn" onClick={connectToDatabase}>
-          send data
+          send to database
+        </button>
+        <button className="connect-database-btn" onClick={minimize}>
+          Minimize
         </button>
         <button className="get-btn" onClick={getfromDatabase}>
-          get data
+          nfa to dfa
         </button>
       </div>
       {console.log(showOutput)}

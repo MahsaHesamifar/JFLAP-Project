@@ -18,7 +18,7 @@ const Output = ({ dfaAutomataState, showOutput }) => {
   // }, [dfaAutomataState]);
   const convertToObj = () => {
     console.log("haha");
-    // console.log(JSON.parse(dfaAutomataState).dfaAutomata.alphabet);
+    // console.log(JSON.parse(dfaAutomataState));
     // alphabet = JSON.parse(dfaAutomataState).dfaAutomata.alphabet;
     // setAlphabet(JSON.parse(dfaAutomataState).dfaAutomata.alphabet);
     // finalStates = JSON.parse(dfaAutomataState).dfaAutomata.finalStates;

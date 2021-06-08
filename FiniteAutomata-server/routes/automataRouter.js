@@ -1,21 +1,16 @@
-const express = require('express');
+const express = require("express");
 const Router = express.Router();
 
-const automataController = require('../contollers/automataController');
+const automataController = require("../contollers/automataController");
 
-Router.route('/new-automata')
-  .post(automataController.createAutomata);
+Router.route("/new-automata").post(automataController.createAutomata);
 
-Router.route('/show-automata')
-  .get(automataController.getAutomata);
+Router.route("/show-automata").get(automataController.getAutomata);
 
-Router.route('/delete-automata')
-  .get(automataController.deleteAutomata);
+Router.route("/delete-automata").get(automataController.deleteAutomata);
 
-Router.route('/nfa2dfa')
-  .get(automataController.NFAtoDFA);
+Router.route("/nfa2dfa").get(automataController.NFAtoDFA);
 
-Router.route('/minimize')
-  .get(automataController.MinimizeDFA);
+Router.route("/minimize").get(automataController.MinimizeDFA);
 
 module.exports = Router;
