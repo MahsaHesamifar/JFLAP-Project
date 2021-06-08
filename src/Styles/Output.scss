@@ -65,12 +65,54 @@
           display: flex;
           flex-direction: column;
           // background-color: red;
-        }
-        #final-states {
-          // background-color: greenyellow;
-        }
-        #start-state {
-          // background-color: hotpink;
+
+          table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            text-align: center;
+
+            th {
+              padding: 10px 20px;
+              font-size: 0.8rem;
+              width: 30%;
+            }
+            td {
+              padding: 5px 10px;
+              font-size: 1.4rem;
+            }
+            thead {
+              .middle-th {
+                border-left: 1px solid #fdded8;
+                border-right: 1px solid #fdded8;
+              }
+              tr:first-child {
+                th {
+                  background-color: #f88169;
+                }
+                th:first-child {
+                  border-top-left-radius: 10px;
+                }
+                th:last-child {
+                  border-top-right-radius: 10px;
+                }
+              }
+            }
+            tbody {
+              tr:last-child {
+                td:first-child {
+                  border-bottom-left-radius: 10px;
+                }
+                td:last-child {
+                  border-bottom-right-radius: 10px;
+                }
+              }
+              tr:nth-child(2n-1) {
+                td {
+                  background-color: #fdded8;
+                }
+              }
+            }
+          }
         }
       }
     }

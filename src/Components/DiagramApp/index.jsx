@@ -266,10 +266,8 @@ const DiagramApp = () => {
         <div className="server-response">
           <div className="output-container" id="output-container">
             <div className="output-msg">
-              {console.log(outputTitle)}
               <h1>{outputTitle}</h1>
               <div className="output-diagram">
-                {console.log(transitionTable)}
                 <Output
                   dfaAutomataState={dfaAutomataState}
                   alphabet={alphabet}
