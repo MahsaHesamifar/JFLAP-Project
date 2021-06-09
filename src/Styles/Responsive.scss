@@ -4,6 +4,11 @@
       width: 55%;
       justify-content: flex-end;
     }
+    .output-container {
+      .output-msg {
+        width: 70%;
+      }
+    }
   }
 }
 @media screen and (max-width: 960px) {
@@ -20,6 +25,11 @@
         width: 15%;
         font-size: 0.7rem;
         padding: 10px 8px;
+      }
+    }
+    .output-container {
+      .output-msg {
+        width: 80%;
       }
     }
   }
@@ -39,6 +49,11 @@
         width: 20%;
         font-size: 0.7rem;
         padding: 8px 8px;
+      }
+    }
+    .output-container {
+      .output-msg {
+        width: 90%;
       }
     }
   }
@@ -77,6 +92,26 @@
         font-size: 0.6rem;
         padding: 8px 8px;
         width: 20%;
+      }
+    }
+    .output-container {
+      .output-msg {
+        width: 90%;
+        h1 {
+          font-size: 1.5rem;
+        }
+        .output-li .header {
+          font-size: 14px !important;
+        }
+        table {
+          th {
+            padding: 5px 10px !important;
+          }
+          td {
+            padding: 5px 10px !important;
+            font-size: 1.1rem !important;
+          }
+        }
       }
     }
   }

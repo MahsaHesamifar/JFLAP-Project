@@ -17,11 +17,10 @@
   align-items: center;
 
   .output-msg {
-    // background-color: red;
     position: relative;
     z-index: 10;
     height: 80vh;
-    width: 90%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,14 +56,10 @@
             padding: 0 20px;
           }
         }
-        #alphabet {
-          // background-color: green;
-        }
+
         #transition-table {
-          // background-color: tomato;
           display: flex;
           flex-direction: column;
-          // background-color: red;
 
           table {
             margin-top: 20px;
