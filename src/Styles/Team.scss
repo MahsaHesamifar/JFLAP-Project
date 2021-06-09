@@ -1,3 +1,42 @@
-.team-container{
-    margin-top: 50px;
+.team-container {
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    color: #282828;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  ul {
+    background-color: #282828;
+    border-radius: 15px;
+    padding: 50px 0;
+    width: 50%;
+    height: 65vh;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    li {
+      color: #282828;
+      padding: 10px 20px;
+    }
+    span {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  }
+  .blue {
+    color: #53c2b3;
+  }
+  .orange {
+    color: #f88169;
+  }
+  .purple {
+    // color: #672153;
+    color: #b93c95;
+  }
 }

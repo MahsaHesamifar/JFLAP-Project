@@ -33,6 +33,11 @@
       }
     }
   }
+  .team-container {
+    ul {
+      width: 80%;
+    }
+  }
 }
 @media screen and (max-width: 720px) {
   .diagram-container {
@@ -113,6 +118,11 @@
           }
         }
       }
+    }
+  }
+  .team-container {
+    ul {
+      width: 97%;
     }
   }
 }
